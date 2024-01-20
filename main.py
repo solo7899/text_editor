@@ -1,17 +1,8 @@
 import tkinter as tk 
 from tkinter import ttk, font
-from tkinter import filedialog
 import sys
 
-def save_file():
-    file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("text file", "*.txt"), ("all files", "*.*")])
-    if file_path:
-        try:
-            with open(file_path, "w") as file:
-                text_content = text.get("1.0", tk.END)
-                file.write(text_content)
-        except Exception as e:
-            print(f"Error saving file {str(e)}")
+from funcs import save_file
 
 main_window = tk.Tk()
 main_window.bind("<Escape>" , sys.exit)
@@ -26,7 +17,7 @@ text = tk.Text(master=frm, font=fontObj)
 
 btn_frm = ttk.Frame(master=frm)
 Q_button = ttk.Button(master=btn_frm, text="Quit", command=main_window.destroy) #.grid(column=2, row=0)
-S_button = ttk.Button(master=btn_frm, text="Save", command=save_file) #.grid(column=2, row=0)
+S_button = ttk.Button(master=btn_frm, text="Save", command=lambda: save_file(text)) #.grid(column=2, row=0)
 
 
 label.pack(fill="both")
