@@ -2,10 +2,12 @@ import tkinter as tk
 from tkinter import filedialog
 
 def save_file(text, label):
-    """this fucntion is responsible for savedialago and file saving
+    """
+    this fucntion is responsible for savedialago and file saving
 
     Args:
         text (tk.text|tk.Entry): textInput
+        label (tk.label|ttk.label) : Label
     """
     file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("text file", "*.txt"), ("all files", "*.*")])
     if file_path:
@@ -19,6 +21,13 @@ def save_file(text, label):
 
 
 def open_file(text, label):
+    """
+    this fucntion is responsible for opendialago and file file opening
+
+    Args:
+        text (tk.text|tk.Entry): textInput
+        label (tk.label|ttk.label) : Label
+    """
     file_path = filedialog.askopenfilename(filetypes=(["text files", "*.txt"], ["all files", "*.*"]))
     if file_path:
         try:
