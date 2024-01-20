@@ -2,6 +2,11 @@ import tkinter as tk
 from tkinter import filedialog
 
 def save_file(text):
+    """this fucntion is responsible for savedialago and file saving
+
+    Args:
+        text (tk.text|tk.Entry): textInput
+    """
     file_path = filedialog.asksaveasfilename(defaultextension=".txt", filetypes=[("text file", "*.txt"), ("all files", "*.*")])
     if file_path:
         try:

@@ -4,21 +4,24 @@ import sys
 
 from funcs import save_file
 
+#makeing the main window
 main_window = tk.Tk()
 main_window.bind("<Escape>" , sys.exit)
+
+#setting the main Frame
 frm = ttk.Frame(main_window, padding=10)
 # frm.grid()
 frm.pack(fill="both" ,side="top", expand=True)
 
+#setting main Frame objects
 fontObj = font.Font(size=18)
-
 label = ttk.Label(master=frm, text="Hello World", anchor="center") #.grid(column=0, row=0)
 text = tk.Text(master=frm, font=fontObj)
 
+#setting btnFrame and its objects
 btn_frm = ttk.Frame(master=frm)
 Q_button = ttk.Button(master=btn_frm, text="Quit", command=main_window.destroy) #.grid(column=2, row=0)
 S_button = ttk.Button(master=btn_frm, text="Save", command=lambda: save_file(text)) #.grid(column=2, row=0)
-
 
 label.pack(fill="both")
 text.pack(fill="both", side="top", expand=True)
