@@ -7,7 +7,7 @@ def enable_button(button):
     if file_path:
         button["state"] = tk.NORMAL
 
-def save_file(text, label, button):
+def save_as_file(text, label, button):
     """
     this fucntion is responsible for savedialago and file saving
 
@@ -51,7 +51,7 @@ def open_file(text, label, button):
             print(f"Error reading file {0}", str(e))
 
             
-def quick_save(text):
+def save(text):
     if file_path:
         try:
             with open(file_path, "w") as file:
