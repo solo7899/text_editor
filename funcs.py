@@ -3,11 +3,10 @@ from tkinter import filedialog
 
 file_path = ""
 
-def enable_button(button):
+def enable_button(menu):
     if file_path:
-        button["state"] = tk.NORMAL
-
-def save_as_file(text, label, button):
+        menu.entryconfig("Save", state=tk.NORMAL)
+def save_as_file(text, label, menu):
     """
     this fucntion is responsible for savedialago and file saving
 
@@ -23,12 +22,12 @@ def save_as_file(text, label, button):
                 text_content = text.get("1.0", tk.END)
                 file.write(text_content)
                 label["text"] = file_path.split("/")[-1]
-                enable_button(button)
+                enable_button(menu)
         except Exception as e:
             print(f"Error saving file {str(e)}")
 
 
-def open_file(text, label, button):
+def open_file(text, label, menu):
     """
     this fucntion is responsible for opendialago and file file opening
 
@@ -45,8 +44,7 @@ def open_file(text, label, button):
                 text.delete("1.0", tk.END)
                 text.insert("1.0", file_context)
                 label["text"] = file_path.split("/")[-1]
-                enable_button(button)
-                print(button["state"])
+                enable_button(menu)
         except Exception as e:
             print(f"Error reading file {0}", str(e))
 
